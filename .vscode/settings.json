@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.svi": "systemverilog",
+        "ios": "cpp",
+        "concepts": "cpp",
+        "istream": "cpp",
+        "locale": "cpp",
+        "ostream": "cpp"
+    }
+}
