@@ -1,3 +1,3 @@
 # WebTrajectory
 
-Web-based trajectory simulator 
+Web-based trajectory simulator using OpenGL
