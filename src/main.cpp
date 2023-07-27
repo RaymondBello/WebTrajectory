@@ -66,7 +66,7 @@ void mainLoop(void *) {
 // These functions are used to pass data back and forth between the JS and the C++ code
 // using the app interface
 
-EMSCRIPTEN_BINDINGS(ggweb) {
+EMSCRIPTEN_BINDINGS(WebTrajectory) {
     emscripten::function("doInit",        emscripten::optional_override([]() -> int                   { return g_appInterface.doInit(); }));
     emscripten::function("setWindowSize", emscripten::optional_override([](int sizeX, int sizeY)      { g_appInterface.setWindowSize(sizeX, sizeY); }));
     emscripten::function("setData",       emscripten::optional_override([](const std::string & input) { g_appInterface.setData(input); }));

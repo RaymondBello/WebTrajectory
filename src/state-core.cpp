@@ -84,8 +84,8 @@ void StateCore::render() {
     // shortcuts
     const auto & T     = rendering.T;
     const auto & wSize = rendering.wSize;
-    ImVec2 pos;
-    float radius;
+    ImVec2 pos{0.0f, 0.0f};
+    float radius{0};
 
     if (rendering.isFirstFrame)
     {

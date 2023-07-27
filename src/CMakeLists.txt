@@ -1,4 +1,4 @@
-if (GGWEB_ALL_WARNINGS)
+if (WEBTRAJECTORY_ALL_WARNINGS)
     if (CMAKE_COMPILER_IS_GNUCC OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
     else()
@@ -33,7 +33,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/build-timestamp-tmpl.h ${CMAKE_RUNTIM
 
 if (EMSCRIPTEN)
     unset(EXTRA_FLAGS)
-    if (GGWEB_WASM_SINGLE_FILE)
+    if (WEBTRAJECTORY_WASM_SINGLE_FILE)
         set(EXTRA_FLAGS "-s SINGLE_FILE=1")
         message(STATUS "Embedding WASM inside .js")
 
