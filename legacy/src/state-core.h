@@ -1,6 +1,7 @@
 #pragma once
 
 #include "common.h"
+#include "state-render.h"
 
 #include <imgui/imgui.h>
 #include <imgui/implot.h>
@@ -41,6 +42,7 @@ struct StateCore {
 
     // rendering
     Rendering rendering;
+    StateRender renderer;
 
     // JS interface
     std::string dataDummy;

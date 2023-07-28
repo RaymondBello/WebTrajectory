@@ -74,4 +74,5 @@ else()
         ${CMAKE_DL_LIBS}
         ${ADDITIONAL_LIBRARIES}
         )
+    message(STATUS "<<${OPENGL_LIBRARIES}>>")
 endif()

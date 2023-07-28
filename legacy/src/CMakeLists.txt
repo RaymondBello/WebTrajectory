@@ -16,6 +16,7 @@ add_executable(${TARGET}
     common.cpp
     state-sdl.cpp
     state-core.cpp
+    state-render.cpp
     )
 
 target_include_directories(${TARGET} PUBLIC
@@ -23,9 +24,10 @@ target_include_directories(${TARGET} PUBLIC
     ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${TARGET}-extra/
     )
 
-target_link_libraries(${TARGET} PRIVATE
+target_link_libraries(${TARGET} PUBLIC
     imgui-sdl2
     ${CMAKE_DL_LIBS}
+    ${OPENGL_LIBRARIES}
     )
 
 make_directory(${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${TARGET}-extra/)

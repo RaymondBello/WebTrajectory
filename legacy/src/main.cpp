@@ -5,6 +5,7 @@
 #include "state-sdl.h"
 #include "state-core.h"
 
+
 #include "icons-font-awesome.h"
 
 #include "imgui-extra/imgui_impl.h"
@@ -20,6 +21,7 @@
 #else
 #define EMSCRIPTEN_KEEPALIVE
 #endif
+#include "state-render.h"
 
 namespace {
 
@@ -187,6 +189,8 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
     StateCore stateCore;
     StateSDL stateSDL = { .windowX = 1200, .windowY = 800, };
 
+    StateRender stateRender;
+
     // initialize SDL + ImGui + ImPlot
     {
         if (stateSDL.initWindow("WebTrajectory") == false) {
@@ -207,6 +211,14 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
         
         // Create ImPlot context
         ImPlot::CreateContext();
+
+        // Create and initialize the render engine
+        stateRender.initStateRender(stateSDL.window, stateSDL.context);
+        stateRender.initVertices();
+        stateRender.initShaders();
+
+        // Assign Renderer to state-core
+        stateCore.renderer = stateRender;
     }
 
     // initialize the application interface
@@ -249,6 +261,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
 
         // cleanup
         {
+            
             stateCore.deinitMain();
             stateSDL.deinitImGui();
             ImPlot::DestroyContext(); // Destroy Implot

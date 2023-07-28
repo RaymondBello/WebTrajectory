@@ -14,6 +14,8 @@
 #include <SDL_opengl.h>
 #endif
 
+#include "state-render.h"
+
 // Main code
 int main(int, char**)
 {

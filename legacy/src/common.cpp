@@ -72,6 +72,9 @@ bool EndFrame(SDL_Window * window) {
     glClearColor(0.0f, 0.0f, 1.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
+    // Create Vertex Shader Object and get its reference
+    // GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+
     ImGui::Render();
     ImGui_RenderDrawData(ImGui::GetDrawData());
 

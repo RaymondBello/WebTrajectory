@@ -108,6 +108,8 @@ void StateCore::render() {
         // call after creating the main window
         rendering.init();
 
+        renderer.mainLoop();
+
         auto drawList = ImGui::GetWindowDrawList();
 
         // draw a moving circle
@@ -154,6 +156,8 @@ void StateCore::render() {
                 if (ImGui::BeginTabItem(ICON_FA_SLIDERS_H " Parameters"))
                 {
                     ImGui::Text("Window size: %6.3f %6.3f\n", wSize.x, wSize.y);
+                    ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+
                     ImGui::Text("Mouse down duration: %g\n", ImGui::GetIO().MouseDownDuration[0]);
 
                     ImGui::Checkbox("Show circle", &showCircle);
